@@ -49,7 +49,7 @@ class ImageData:
                   'pose_roll': pose_roll / n,
                   'pose_pitch': pose_pitch / n,
                   'pose_yaw': pose_yaw / n,
-                  'good_emotion': good_emotion_count / n,
-                  'bad_emotion': bad_emotion_count / n}
+                  'good_emotion': good_emotion_count,
+                  'bad_emotion': bad_emotion_count}
 
         return json.dumps(mydict)
