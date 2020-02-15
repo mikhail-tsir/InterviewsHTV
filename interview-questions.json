@@ -1,0 +1,96 @@
+{
+    '1':
+        {
+            'question-text': 'Tell me a about yourself',
+            'common-topics': ['Hobbies', 'Interests', 'Courses', 'Experience', 'School', 'Learning'],
+            'tips': ['Don\'t be afraid to ask the interviewer a question along the lines of "Is there anything else you\'d like to know?" or \"Would you like to go through the projects on my resume?\"'],
+            'category': 'general'
+        },
+    '2':
+        {
+            'text': 'Tell me about a project you made',
+            'common-topics': ['Challenges', 'Skills', 'Learning', 'Software', 'Design', 'Hardware', ''],
+            'tips': ['Choose a project you\'re passionate about. Talk about it as if you\'re explaining it to a friend who is not familiar with the topic.'],
+            'category': 'specific'
+        },
+    '3':
+        {
+            'text': 'What are your biggest weaknesses?',
+            'common-topics': ['Weakness', 'Challenge', 'Improvement', 'Learn'],
+            'tips': ['Don\'t choose a strength and try to turn it into a weakness (for example don\'t say \"I work tpoo hard and put in more hours that anyone else\"). Instead, Choose an actual weakness you\'re actively trying to improve and talk about how to improve it'],
+            'category': 'general'
+        },
+    '4':
+        {
+            'text': 'What is your biggest strength?',
+            'common-topics': ['Strength', 'Experience'],
+            'tips': ['Provide a sharp, on-point answer. Be clear and precise. If you\'re a great problem solver, don\'t just say that: Provide a few examples, pertinent to the opening, that prove you\'re a great problem solver.'],
+            'category': 'general'
+        },
+    '5':
+        {
+            'text': 'Where to you see yourself in five years?',
+            'common-topics': ['Goals', 'Workplace,', 'Hopes', 'Dreams', 'Interests', 'Passion'],
+            'tips': 'Avoid providing an overly optimistic answer like \"I want your job!\". Rather, employers want to see an entrepreneurial mindset. Maybe talk about a business idea you\'ve had. However, don\'t overdo this. You don\'t want to say something too ambitious or unattainable.',
+            'category': 'general'
+        },
+    '6':
+        {
+            'text': 'Why should we hire you?',
+            'common-topics': ['Skillset', 'Ambition', 'Passion', 'Stand out'],
+            'tips': 'Employers want to learn as much as they can about you. Maybe use this opportunity to mention something you think is worth mentioning that hasn\'t been asked yet.',
+            'category': 'general'
+        },
+    '7':
+        {
+            'text': 'What do you know about the company?',
+            'common-topics': ['Projects', 'Impact', 'Research', 'Development', 'Solutions'],
+            'tips': 'Make sure to research the company and the details for the position. However, if you do, make sure not to memorize word-for-word what you saw. Try to actually gain insight on what the company is working on. After all, if this is a job you want, you want to show the employer your interest in the company.',
+            'category': 'general'
+        },
+    '8':
+        {
+            'text': 'Why do you want this job?',
+            'common-topics': ['Opportiunities', 'Work Culture', 'Skills', 'Company'],
+            'tips': 'Don\'t just talk about why the company would be great to work for; talk about how the position is a perfect fit for what you hope to accomplish, both short-term and long-term.',
+            'category': 'general'
+        },
+    '9':
+        {
+            'text': 'Tell me about a time you dealt with an upset co-worker and how you dealt with it.',
+            'common-topics': ['Conflict', 'Resolution', 'Discuss', 'Communication', 'Learning from experience'],
+            'tips': 'Conflict is inevitable when a company works hard to get things done. Mistakes happen. Sure, strengths come to the fore, but weaknesses also rear their heads. And that\'s OK. No one is perfect. But a person who tends to push the blame -- and the responsibility for rectifying the situation -- onto someone else is a candidate to avoid. Hiring managers would much rather choose candidates who focus not on blame but on addressing and fixing the problem.',
+            'category': 'specific'
+        },
+    '10':
+        {
+            'text': 'Tell me about the toughest decision you had to make recently.',
+            'common-topics': ['Issue', 'Consideration', 'Decision-making', 'Consulting', 'Customer', 'Misbehaviour'],
+            'tips': 'The goal of this question is to evaluate the candidate\'s reasoning ability, problem-solving skills, judgment, and possibly even willingness to take intelligent risks. A great answer proves you can make a difficult interpersonal decision, or better yet a difficult data-driven decision that includes interpersonal considerations and ramifications.'
+        },
+    '11':
+        {
+            'text': 'Tell me about a time you disagreed with a decision. What did you do?',
+            'common-topics': ['Professional', 'Productive', 'Change', 'Proof', 'Logical reasoning'],
+            'tips': 'Show that you were professional. Show that you raised your concerns in a productive way. If you have an example that proves you can effect change, great -- and if you don\'t, show that you can support a decision even though you think it\'s wrong (as long as it\'s not unethical, immoral, etc.).',
+            'category': 'specific'
+        },
+    '12':
+        {
+            'text': 'How would a co-worker describe you?',
+            'common-topics': ['Honesty', 'What you see is what you get', 'Reliability'],
+            'tips': 'This question can be very unpleasant, but it does get asked and it is worth knowing how to answer well. Here is an example of a good answer: \"I think people would say that what you see is what you get," the candidate said. "If I say I will do something, I do it. If I say I will help, I help. I\'m not sure that everyone likes me, but they all know they can count on what I say and how hard I work.\"'
+        },
+    '13':
+        {
+            'text': 'What do you like to do outside of work?',
+            'common-topics': ['Hobbies', 'Sports', 'Hobbies', 'Family', 'Learning'],
+            'tips': 'Talk about your hobbies and interests--this is a good time to bond with the employer and to turn the interview into more of a conversation. It is also worth mentioning skills/activities which involve goals you\'re trying to accomplish. For example, raising a family, learning a new language, etc.'
+        },
+    '14':
+        {
+            'text': 'Do you have any questions for me?',
+            'current-topics': ['Employees', 'Role', 'Company culture', 'Goals'],
+            'tips': 'Do NOT simply say \"no\". Always ask questions--this won\'t seem impolite. It shows that you show interest in the position. Also, take the time to learn more about the position. There\'s only so much you can find out from the job posting.'
+        }
+}
