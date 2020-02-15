@@ -3,8 +3,8 @@ import boto3
 #can't be locally defined - need to hard code in conditions
 #session = boto3.Session(profile_name='dev')
 
-session = boto3.Session(aws_access_key_id='AKIAJVYGK2OK5VGO6CTA',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='XXXXXXXXXXXX',
+                        aws_secret_access_key='XXXXXXXXXXXXXXXXXXXXXXXXXXX',
                         region_name='us-east-1')
 s3 = boto3.resource('s3')
 
