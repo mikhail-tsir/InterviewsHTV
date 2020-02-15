@@ -6,9 +6,5 @@ app = Flask(__name__)
 def index():
     return 'INDEX'
 
-@app.route('/retrievejson')
-def index():
-    return 'It works'
-
 if __name__ == '__main__':
     app.run(debug=True)
