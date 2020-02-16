@@ -11,6 +11,7 @@ from data_control import ImageData
 from getAudio import sendAudio
 from give_tips import givetips
 from stallWords import getStall
+from generate_question import gen_q
 
 #make class having folder name ? triv
 #deleteFile('new-hack-valley', 'bad_example.jpg')
@@ -49,22 +50,18 @@ def requestAudio():
 def requestPhotos():
     getImage(10)
 
-
 def requestData():
     analyzeAllPhotos(photoBucket)
     data = ImageData.get_img_data()
-    # send data to react
+    #send get_tips([data[0], data[1], data[2], ...]) to react
 
 def start():
     requestAudio()
     requestPhotos()
 
-requestPhotos()
-
 
 def __main__():
     print("Hello, World!")
-
 
 
 

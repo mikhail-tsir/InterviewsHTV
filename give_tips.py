@@ -1,6 +1,14 @@
 import numpy
+import json
 
-def givetips(smile, roll, pitch, yaw, good):
+def givetips(data):
+
+    #smile, roll, pitch, yaw, good
+    smile = data['smile']
+    roll = data['pose_roll']
+    pitch = data['pose_pitch']
+    yaw = data['pose_yaw']
+    good = data['good_emotion']
     tips = []
     rand = 0
     if (smile <= 0.2):
@@ -17,5 +25,5 @@ def givetips(smile, roll, pitch, yaw, good):
         tips.append("Make sure you face the interviewer!")
     if (good < 0.6):
         tips.append("Relax a little bit, you look stressed!")
-    return tips
+    return json.dumps(tips)
 

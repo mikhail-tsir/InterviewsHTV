@@ -8,6 +8,21 @@ session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
 
 comprehend = session.client('comprehend')
 
+textBucket = 'hack-the-valley-text'
+
+def getFirstFile(bucket):
+    conn = session.client('s3')
+    for key in conn.list_objects(Bucket=bucket)['Contents']:
+        return (key['Key'])
+        break
+
+def getTranscript(bucket):
+    jsonText = getFirstFile(textBucket)
+    try:
+        return jsonText['results']['transcripts'][0]['transcript']
+    except:
+        return "error"
+
 def detectKeyPhrases(input):
     return comprehend.detect_key_phrases(Text=input, LanguageCode='en')
 
@@ -29,7 +44,7 @@ def processLanguage(input):
         phraseList = [];
         for dictionary in phrases:
             phraseList.append(dictionary['Text'])
-        output = [sentiment, sentimentPercent, phraseList, calculateSpeed(input), ]
+        output = [sentiment, sentimentPercent, phraseList, calculateSpeed(input)]
         print(output)
         return output
     except:
