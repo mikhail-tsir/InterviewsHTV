@@ -10,10 +10,7 @@ cluster = MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?re
 db = cluster["interview"]
 collection = db["users"]
 
-#can't be locally defined - need to hard code in conditions
-#session = boto3.Session(profile_name='dev')
-
-session = boto3.Session(aws_access_key_id='AKIAJVYGK2OK5VGO6CTA',
+session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
                         aws_secret_access_key='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',
                         region_name='us-east-1')
 s3 = boto3.resource('s3')
@@ -45,29 +42,18 @@ def analyzePhoto(bucket, name):
 
         ]
     )
-    try:
-        print([name, response['FaceDetails'][0]['Smile'], response['FaceDetails'][0]['Emotions']])
-        try:
-            collection.insert_one(response['FaceDetails'][0]['Smile'])
-            collection.insert_one(response['FaceDetails'][0]['Emotions'])
-        except:
-            print("error uploading")
-
-    #make it send to database instead of return
-    except:
-        print("error")
+    print([name, response['FaceDetails'][0]['Smile'], response['FaceDetails'][0]['Emotions']])
+    entry = response
+    entry['_id'] = name
+    collection.insert_one(entry)
 
 
 def analyzeAllPhotos(bucket):
     conn = session.client('s3')
+    #add while true? while running?
     try:
         for key in conn.list_objects(Bucket=bucket)['Contents']:
             analyzePhoto(bucket, key['Key'])
-    except:
-        print("empty")
-    try:
-        for key in conn.list_objects(Bucket=bucket)['Contents']:
-           # deleteFile(bucket, key['Key'])
-            print("Helooo")
+            deleteFile(bucket, key['Key'])
     except:
         print("empty")
