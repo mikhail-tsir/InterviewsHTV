@@ -1,0 +1,28 @@
+if (not smile enough)
+	if (currSmile <= prevSmile - 0.1)
+		notify
+		prevSmile = currSmile
+
+^^main code^^
+
+\/ \/ your code \/ \/ 
+
+
+int smileCount = 0;
+int goodCount = 0;
+int badCount = 0;
+
+every loop
+	getData
+	nCount++
+	smileCount += data.smile
+	if (data.emotion == happy || data.emotion == calm)
+		goodCount++
+	else
+		badCount++
+	pose = data.pose
+	deleteData
+	send to main: (nCount, smileCount, goodCount, badCount, pose)
+
+
+sendToMain everything for overall analysis at end
