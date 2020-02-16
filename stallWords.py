@@ -2,7 +2,7 @@
 def getStall(text):
     text = text.lower()
     te = list(text.split())
-
+    uh = 0
     um = 0
     kinda = 0
     like = 0
@@ -41,6 +41,8 @@ def getStall(text):
             sure += 1
         if i == "fired":
             fired += 1
+        if i == "uh":
+            uh += 1
         counter += 1
     mylist = [um, kinda, like, hate, fuck, bitch, shit, damn, dammit, perfectionist, sure, stuff, fired]
     return mylist
