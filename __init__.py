@@ -19,6 +19,7 @@ from stallWords import getStall
 from __main__ import requestPhotos
 from language import processLanguage
 from generate_question import gen_q
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -38,29 +39,29 @@ textBucket = 'hack-the-valley-text'
 @app.route('/audio')
 def recAud():
     sendAudio(90)
-    return []
+    return json.dump([])
 
 
 @app.route('/photo')
 def takePhoto():
     getImage(10)
-    return []
+    return json.dump([])
 
 
 @app.route('/pdata')
 def photoData():
     analyzeAllPhotos(photoBucket)
     data = ImageData.get_img_data()
-    return givetips(data)
+    return json.dump(givetips(data))
 
 @app.route('/ldata')
 def languageData():
     transcribeAudio(audioBucket, textBucket)
-    return processLanguage()
+    return json.dump(processLanguage())
 
 @app.route('/question')
 def sendQuestion():
-    return gen_q()
+    return json.dumps(gen_q())
 
 
 
