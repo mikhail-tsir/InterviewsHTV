@@ -20,6 +20,7 @@ from __main__ import requestPhotos
 from language import processLanguage
 from generate_question import gen_q
 import json
+from __main__ import clearBucket
 
 app = Flask(__name__)
 CORS(app)
@@ -63,6 +64,11 @@ def languageData():
 def sendQuestion():
     return json.dumps(gen_q())
 
+@app.route('/stop')
+def stop():
+    clearBucket('hack-the-valley-photo')
+    clearBucket('hack-the-valley-audio')
+    clearBucket('hack-the-valley-text')
 
 
 @app.route('/')
