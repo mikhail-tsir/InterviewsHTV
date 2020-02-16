@@ -20,7 +20,7 @@ class ImageData:
         pose_yaw = 0
         pose_pitch = 0
         n = 0
-        for obj in collection.find():
+        for obj in MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority").interview.users.find():
             n += 1
             if not ImageData._sunglass_check:
                 if obj['FaceDetails'][0]['Sunglasses']['Value']:

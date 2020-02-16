@@ -1,5 +1,7 @@
-import numpy
+import numpy.random
 import json
+
+numpy.random.seed(0)
 
 def givetips(data):
 
@@ -12,7 +14,7 @@ def givetips(data):
     tips = []
     rand = 0
     if (smile <= 0.2):
-        rand = numpy.random(0,3)
+        rand = numpy.random.randint(0,3)
         if (rand == 0):
             tips.append("Try to smile more!")
         elif (rand == 1):

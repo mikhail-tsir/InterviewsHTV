@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_cors import CORS
-from .sendImage import getImage
 import os
 import random
 from photo import analyzePhoto, deleteFile, getFiles, analyzeAllPhotos
@@ -12,7 +11,7 @@ from sendImage import getImage
 from getAudio import sendAudio
 import threading
 import time
-from data_control import ImageData
+from data_control2 import get_img_data
 from getAudio import sendAudio
 from give_tips import givetips
 from stallWords import getStall
@@ -28,6 +27,7 @@ CORS(app)
 photoBucket = 'hack-the-valley-photo'
 audioBucket = 'hack-the-valley-audio'
 textBucket = 'hack-the-valley-text'
+
 
 '''
 4 http process:
@@ -52,8 +52,8 @@ def takePhoto():
 @app.route('/pdata')
 def photoData():
     analyzeAllPhotos(photoBucket)
-    data = ImageData.get_img_data()
-    return json.dump(givetips(data))
+    data = get_img_data()
+    return json.dumps(givetips(data))
 
 @app.route('/ldata')
 def languageData():
