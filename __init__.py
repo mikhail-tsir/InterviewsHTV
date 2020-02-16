@@ -15,7 +15,6 @@ from data_control2 import get_img_data
 from getAudio import sendAudio
 from give_tips import givetips
 from stallWords import getStall
-from __main__ import requestPhotos
 from language import processLanguage
 from generate_question import gen_q
 import json
@@ -53,10 +52,12 @@ def takePhoto():
 
 @app.route('/pdata')
 def photoData():
-    analyzeAllPhotos(photoBucket)
-    #print(json.dumps(givetips(data)))
-    return json.dumps(givetips(get_img_data()))
-
+    try:
+        analyzeAllPhotos(photoBucket)
+        #print(json.dumps(givetips(data)))
+        return json.dumps(givetips(get_img_data()))
+    except:
+        return json.dumps([])
 
 @app.route('/ldata')
 def languageData():

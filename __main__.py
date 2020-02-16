@@ -12,6 +12,16 @@ from give_tips import givetips
 from stallWords import getStall
 from generate_question import gen_q
 from photo import clearFiles
+from __init__ import photoData
+from __init__ import takePhoto
+from __init__ import recAud
+from __init__ import sendQuestion
+from __init__ import stop
+from __init__ import languageData
+from audio import getFirstFile
+from language import processLanguage
+from data_control2 import get_img_data
+
 
 #make class having folder name ? triv
 #deleteFile('new-hack-valley', 'bad_example.jpg')
@@ -43,7 +53,8 @@ def requestPhotos():
 
 def requestData():
     analyzeAllPhotos(photoBucket)
-    data = ImageData.get_img_data()
+    data = get_img_data()
+    return data
     #send get_tips([data[0], data[1], data[2], ...]) to react
 
 def start():
@@ -53,16 +64,6 @@ def start():
 
 def __main__():
     print("Hello, World!")
-
-
-from __init__ import photoData
-from __init__ import takePhoto
-from __init__ import recAud
-from __init__ import sendQuestion
-from __init__ import stop
-from __init__ import languageData
-from audio import getFirstFile
-from language import processLanguage
 
 
 
@@ -76,3 +77,15 @@ from language import processLanguage
 
 #processLanguage("I constantly display a good work ethic, if someone asks me to do something, I'll do it no matter what.")
 #transcribeAudio(audioBucket, '67683272999951193819036946770628923121386908970706710153232.wav', textBucket)
+
+
+stop()
+takePhoto()
+print(photoData())
+
+
+'''
+stop()
+recAud()
+print(languageData())
+'''
