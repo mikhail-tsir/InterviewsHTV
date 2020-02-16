@@ -19,7 +19,7 @@ from __main__ import requestPhotos
 from language import processLanguage
 from generate_question import gen_q
 import json
-from __main__ import clearBucket
+from photo import clearFiles
 
 app = Flask(__name__)
 CORS(app)
@@ -75,3 +75,5 @@ def stop():
 @app.route('/')
 def home():
     return 'owo'
+
+takePhoto()

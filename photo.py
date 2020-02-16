@@ -10,8 +10,8 @@ cluster = MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?re
 db = cluster["interview"]
 collection = db["users"]
 
-session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AKIAJJ6RSIJLAHOKKCNA',
+                        aws_secret_access_key='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',
                         region_name='us-east-1')
 s3 = boto3.resource('s3')
 
@@ -26,6 +26,11 @@ def getFiles(bucket):
 
 def deleteFile(bucket, name):
     s3.Object(bucket, name).delete()
+
+def clearFiles(bucket):
+    conn = session.client('s3')
+    for key in conn.list_objects(Bucket=bucket)['Contents']:
+        deleteFile(bucket, key['Key'])
 
 def analyzePhoto(bucket, name):
     response = client.detect_faces(
