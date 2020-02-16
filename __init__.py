@@ -40,25 +40,26 @@ textBucket = 'hack-the-valley-text'
 @app.route('/audio')
 def recAud():
     sendAudio(90)
-    return json.dump([])
+    return json.dumps([])
 
 
 @app.route('/photo')
 def takePhoto():
     getImage(10)
-    return json.dump([])
+    return json.dumps([])
 
 
 @app.route('/pdata')
 def photoData():
     analyzeAllPhotos(photoBucket)
     data = get_img_data()
+    print(json.dumps(givetips(data)))
     return json.dumps(givetips(data))
 
 @app.route('/ldata')
 def languageData():
     transcribeAudio(audioBucket, textBucket)
-    return json.dump(processLanguage())
+    return json.dumps(processLanguage())
 
 @app.route('/question')
 def sendQuestion():

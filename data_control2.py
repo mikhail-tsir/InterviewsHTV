@@ -29,7 +29,11 @@ def get_img_data():
     smile = 0
     for obj in collectionUsers.interview.users.find():
         n += 1
-        smile = obj['FaceDetails'][0]['Smile']
+        smileType = obj['FaceDetails'][0]['Smile']
+        if smileType['Value']:
+            smile += smileType['Confidence']
+        else:
+            smile -= smileType['Confidence']
         pose = obj['FaceDetails']['Pose']
 
         pose_roll = max(abs(pose['Roll']), pose_roll)
