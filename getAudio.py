@@ -6,8 +6,8 @@ import boto3
 from botocore.client import Config
 import os
 import random
-ACCESS_KEY = 'AKIAJKXVIYSIIRZYA2UQ'
-SECRET_KEY = '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'
+ACCESS_KEY = 'AKIAIWMAC56IM4LRHWUA'
+SECRET_KEY = '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'
 bucketname = 'hack-the-valley-audio'
 #data = open(filename, 'rb')
 
@@ -26,7 +26,7 @@ def sendAudio(length):
     filename1 = os.path.join(here1, 'myaudio.wav')
     data1 = open(filename1, 'rb')
     write(filename1, fs, myrecording)  # Save as WAV file
-    # os.startfile("myaudio.wav")
+    #os.startfile("myaudio.wav")
     generaudio = random.randint(1, 100000000000000000000000000000000000000000000000000000000000)
 
     s3.Bucket(bucketname).put_object(Key="{}.wav".format(generaudio), Body=data1)

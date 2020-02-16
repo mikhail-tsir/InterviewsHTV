@@ -2,8 +2,8 @@ import boto3
 import json
 import time
 
-session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
+                        aws_secret_access_key='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',
                         region_name='us-east-1')
 
 client = session.client('s3')
@@ -11,8 +11,9 @@ client = session.client('s3')
 def getFirstFile(bucket):
     conn = session.client('s3')
     for key in conn.list_objects(Bucket=bucket)['Contents']:
-        return (key['Key'])
-        break
+        if (key['Key'] != '.write_access_check_file.temp'):
+            return (key['Key'])
+            break
 
 #bucket != target is best
 def transcribeAudio(bucket, target):

@@ -7,14 +7,13 @@ import random
 
 #filename = os.path.join(here, 'example.jpg')
 
-ACCESS_KEY = 'AKIAJJ6RSIJLAHOKKCNA'
-SECRET_KEY = 'iRto6xWJ4SSjrQCrDyqJzIxmFrHiVleL1OqeQ6dd'
+ACCESS_KEY = 'AKIAIWMAC56IM4LRHWUA'
+SECRET_KEY = '5PcECR4hIV/NNGz9E9lFnHA2llq7ZysUE0iUUP4O'
 bucketname = 'hack-the-valley-photo'
 #data = open(filename, 'rb')
 
 s3 = boto3.resource('s3', aws_access_key_id=ACCESS_KEY,
-                      aws_secret_access_key=SECRET_KEY,
-                    config = Config(signature_version='s3v4'))
+                      aws_secret_access_key=SECRET_KEY)
 
 import cv2, time
 def getImage(timer):

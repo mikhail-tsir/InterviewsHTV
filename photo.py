@@ -10,8 +10,8 @@ cluster = MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?re
 db = cluster["interview"]
 collection = db["users"]
 
-session = boto3.Session(aws_access_key_id='AKIAJJ6RSIJLAHOKKCNA',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
+                        aws_secret_access_key='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',
                         region_name='us-east-1')
 s3 = boto3.resource('s3')
 
@@ -28,10 +28,13 @@ def deleteFile(bucket, name):
     s3.Object(bucket, name).delete()
 
 def clearFiles(bucket):
-    conn = session.client('s3')
-    for key in conn.list_objects(Bucket=bucket)['Contents']:
-        deleteFile(bucket, key['Key'])
-
+    try:
+        conn = session.client('s3')
+        for key in conn.list_objects(Bucket=bucket)['Contents']:
+            deleteFile(bucket, key['Key'])
+        print("Cleared.")
+    except:
+        print("Empty bucket")
 def analyzePhoto(bucket, name):
     response = client.detect_faces(
         Image={
@@ -56,9 +59,9 @@ def analyzePhoto(bucket, name):
 def analyzeAllPhotos(bucket):
     conn = session.client('s3')
     #add while true? while running?
-    try:
-        for key in conn.list_objects(Bucket=bucket)['Contents']:
-            analyzePhoto(bucket, key['Key'])
-            deleteFile(bucket, key['Key'])
-    except:
-        print("empty")
+    #try:
+    for key in conn.list_objects(Bucket=bucket)['Contents']:
+        analyzePhoto(bucket, key['Key'])
+        deleteFile(bucket, key['Key'])
+    #except:
+     #   print("empty")

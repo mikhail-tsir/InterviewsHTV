@@ -13,7 +13,12 @@ def givetips(data):
     good = data['good_emotion']
     tips = []
     rand = 0
-    if (smile <= -0.5):
+    print("Smile is " + str(smile))
+    print("Roll is " + str(roll))
+    print("Pitch is " + str(pitch))
+    print("yaw is " + str(yaw))
+    print("good is " + str(good))
+    if (smile <= 0):
         rand = numpy.random.randint(0,3)
         if (rand == 0):
             tips.append("Try to smile more!")
@@ -25,7 +30,7 @@ def givetips(data):
             tips.append("Try to loosen up!")
     if (roll > 30 or pitch > 30 or yaw > 30):
         tips.append("Make sure you face the interviewer!")
-    if (good < 0):
+    if (good < 1):
         tips.append("Relax a little bit, you look stressed!")
     return json.dumps(tips)
 

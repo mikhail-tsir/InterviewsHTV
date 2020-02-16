@@ -2,19 +2,15 @@ import boto3
 import json
 
 
-session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
+                        aws_secret_access_key='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',
                         region_name='us-east-1')
 
 comprehend = session.client('comprehend')
 
 textBucket = 'hack-the-valley-text'
 
-def getFirstFile(bucket):
-    conn = session.client('s3')
-    for key in conn.list_objects(Bucket=bucket)['Contents']:
-        return (key['Key'])
-        break
+s3 = boto3.resource('s3')
 
 def getTranscript(bucket):
     jsonText = getFirstFile(textBucket)
@@ -31,24 +27,46 @@ def detectSentiment(input):
 
 def calculateSpeed(input):
     time = 90
-    words = input.split().length()
+    words = len(input.split())
     return words*60/time
 
-def processLanguage(input):
-    try:
-        keyPhraseJson = detectKeyPhrases(input)
-        sentimentJson = detectSentiment(input)
-        sentiment = sentimentJson['Sentiment']
-        sentimentPercent = sentimentJson['SentimentScore'][sentiment.lower().capitalize()]
-        phrases = keyPhraseJson['KeyPhrases']
-        phraseList = [];
-        for dictionary in phrases:
-            phraseList.append(dictionary['Text'])
-        output = [sentiment, sentimentPercent, phraseList, calculateSpeed(input)]
-        print(output)
-        return output
-    except:
-        print("error in processing language")
-        return ["", -1, [], -1]
+'''def processLanguage(name):
+    content_object = s3.Object('hack-the-valley-text', name)
+    file_content = content_object.get()['Body'].read().decode('utf-8')
+    json_content = json.loads(file_content)
+    input = str(json_content['results']['transcripts'][0]['transcript'])
+    print(input)
+    keyPhraseJson = detectKeyPhrases(input)
+    sentimentJson = detectSentiment(input)
+    sentiment = sentimentJson['Sentiment']
+    sentimentPercent = sentimentJson['SentimentScore'][sentiment.lower().capitalize()]
+    phrases = keyPhraseJson['KeyPhrases']
+    phraseList = [];
+    for dictionary in phrases:
+        phraseList.append(dictionary['Text'])
+    output = [sentiment, sentimentPercent, phraseList, calculateSpeed(input)]
+    print(output)
+    return output'''
+
+def processLanguage(name):
+    content_object = s3.Object('hack-the-valley-text', name)
+    file_content = content_object.get()['Body'].read().decode('utf-8')
+    json_content = json.loads(file_content)
+    input = str(json_content['results']['transcripts'][0]['transcript'])
+    print(input)
+    keyPhraseJson = detectKeyPhrases(input)
+    sentimentJson = detectSentiment(input)
+    sentiment = sentimentJson['Sentiment']
+    sentimentPercent = sentimentJson['SentimentScore'][sentiment.lower().capitalize()]
+    phrases = keyPhraseJson['KeyPhrases']
+    phraseList = [];
+    for dictionary in phrases:
+        phraseList.append(dictionary['Text'])
+    output = [sentiment, sentimentPercent, phraseList, calculateSpeed(input)]
+    print(output)
+    return output
+    #except:
+     #   print("error in processing language")
+      #  return ["", -1, [], -1]
 
 

@@ -7,7 +7,6 @@ from sendImage import getImage
 from getAudio import sendAudio
 import threading
 import time
-from data_control import ImageData
 from getAudio import sendAudio
 from give_tips import givetips
 from stallWords import getStall
@@ -21,8 +20,8 @@ photoBucket = 'hack-the-valley-photo'
 audioBucket = 'hack-the-valley-audio'
 textBucket = 'hack-the-valley-text'
 
-session = boto3.Session(aws_access_key_id='AKIAJJ6RSIJLAHOKKCNA',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
+                        aws_secret_access_key='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',
                         region_name='us-east-1')
 
 #t1 = threading.Thread(target=getImage, args=(100,))
@@ -58,8 +57,14 @@ def __main__():
 
 from __init__ import photoData
 from __init__ import takePhoto
+from __init__ import recAud
+from __init__ import sendQuestion
+from __init__ import stop
+from __init__ import languageData
+from audio import getFirstFile
+from language import processLanguage
 
-takePhoto()
+
 
 
 

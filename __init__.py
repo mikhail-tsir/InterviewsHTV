@@ -20,6 +20,8 @@ from language import processLanguage
 from generate_question import gen_q
 import json
 from photo import clearFiles
+from audio import getFirstFile
+from deletedocuments import delData, delUsers
 
 app = Flask(__name__)
 CORS(app)
@@ -39,7 +41,7 @@ textBucket = 'hack-the-valley-text'
 
 @app.route('/audio')
 def recAud():
-    sendAudio(90)
+    sendAudio(10)
     return json.dumps([])
 
 
@@ -52,28 +54,31 @@ def takePhoto():
 @app.route('/pdata')
 def photoData():
     analyzeAllPhotos(photoBucket)
-    data = get_img_data()
-    print(json.dumps(givetips(data)))
-    return json.dumps(givetips(data))
+    #print(json.dumps(givetips(data)))
+    return json.dumps(givetips(get_img_data()))
+
 
 @app.route('/ldata')
 def languageData():
     transcribeAudio(audioBucket, textBucket)
-    return json.dumps(processLanguage())
+    return json.dumps(processLanguage(getFirstFile(textBucket)))
 
 @app.route('/question')
 def sendQuestion():
     return json.dumps(gen_q())
 
+
+
 @app.route('/stop')
 def stop():
-    clearBucket('hack-the-valley-photo')
-    clearBucket('hack-the-valley-audio')
-    clearBucket('hack-the-valley-text')
+    delData()
+    delUsers()
+    clearFiles('hack-the-valley-photo')
+    clearFiles('hack-the-valley-audio')
+    clearFiles('hack-the-valley-text')
+    return json.dumps([])
 
 
 @app.route('/')
 def home():
     return 'owo'
-
-takePhoto()
