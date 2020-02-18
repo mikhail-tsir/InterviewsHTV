@@ -7,8 +7,8 @@ import random
 
 #filename = os.path.join(here, 'example.jpg')
 
-ACCESS_KEY = 'AKIAIWMAC56IM4LRHWUA'
-SECRET_KEY = '5PcECR4hIV/NNGz9E9lFnHA2llq7ZysUE0iUUP4O'
+ACCESS_KEY = 'AWS_ACCESS_KEY'
+SECRET_KEY = 'AWS_SECRET_KEY'
 bucketname = 'hack-the-valley-photo'
 #data = open(filename, 'rb')
 
