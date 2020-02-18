@@ -1,7 +1,7 @@
 #delete elements in database
 
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://Wen:1234[PASSWORD]@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
 db = client["interview"]
 col = db["users"]
 col2 = db["storeData"]
