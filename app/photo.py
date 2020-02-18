@@ -6,12 +6,12 @@ from pymongo import MongoClient
 from pprint import pprint
 import json
 
-cluster = MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
+cluster = MongoClient("mongodb+srv://Wen:[PASSWORD]@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster["interview"]
 collection = db["users"]
 
-session = boto3.Session(aws_access_key_id='AKIAJKXVIYSIIRZYA2UQ',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AWS_ACCESS_KEY',
+                        aws_secret_access_key='AWS_SECRET_KEY',
                         region_name='us-east-1')
 s3 = boto3.resource('s3')
 
