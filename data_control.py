@@ -3,7 +3,7 @@ import json
 
 
 class ImageData:
-    client = MongoClient("mongodb+srv://Wen:1234@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
+    client = MongoClient("mongodb+srv://Wen:[PASSWORD]@cluster0-gvhmp.mongodb.net/test?retryWrites=true&w=majority")
     collection = client.interview.users
 
     good_emotion_count = 0
