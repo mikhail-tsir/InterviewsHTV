@@ -6,8 +6,8 @@ import boto3
 from botocore.client import Config
 import os
 import random
-ACCESS_KEY = 'AKIAJKXVIYSIIRZYA2UQ'
-SECRET_KEY = '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'
+ACCESS_KEY = 'AWS_ACCESS_KEY'
+SECRET_KEY = 'AWS_SECRET_KEY'
 bucketname = 'hack-the-valley-audio'
 #data = open(filename, 'rb')
 
