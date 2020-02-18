@@ -2,8 +2,8 @@ import boto3
 import json
 
 
-session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AWS_ACCESS_KEY',
+                        aws_secret_access_key='AWS_SECRET_KEY',
                         region_name='us-east-1')
 
 comprehend = session.client('comprehend')
