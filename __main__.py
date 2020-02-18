@@ -30,8 +30,8 @@ photoBucket = 'hack-the-valley-photo'
 audioBucket = 'hack-the-valley-audio'
 textBucket = 'hack-the-valley-text'
 
-session = boto3.Session(aws_access_key_id='AKIAIWMAC56IM4LRHWUA',
-                        aws_secret_access_key='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',
+session = boto3.Session(aws_access_key_id='AWS_ACCESS_KEY',
+                        aws_secret_access_key='AWS_SECRET_KEY',
                         region_name='us-east-1')
 
 #t1 = threading.Thread(target=getImage, args=(100,))
